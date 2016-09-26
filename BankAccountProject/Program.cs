@@ -12,6 +12,9 @@ namespace BankAccountProject
         {
             // Initialize variables
             int menuOption;
+            int subSelect;
+            string userName ="George";
+            int accountNum = 987123;
             
             // Display Menu
             do
@@ -33,14 +36,41 @@ namespace BankAccountProject
                 {
                     case 1:
                         // View client information Name and account number hardcoded
-                        Console.WriteLine("\n1 - Client Information - Selected\n");
+                        Console.Clear();
+                        Console.WriteLine("\nClient Information\n");
+                        Console.WriteLine("UserName: {0}\nAccount Number: {1}", userName, accountNum);
+                        Console.Write("\nPress any key continue");
                         Console.ReadKey();
                         Console.Clear();
                         break;
                     case 2:
                         // View account balance - sub menu Chk, Res, and Sav
                         Console.WriteLine("\n2 - View account information - Selected\n");
-                        SubMenu();
+                        subSelect = SubMenu();
+                        if (subSelect == 1)
+                        {
+                            // Create new Checking object
+                            Console.WriteLine("subSelect: {0} - Checking", subSelect);
+                            CheckingAccount checking = new CheckingAccount();
+
+                            
+                        }
+                        else if(subSelect == 2)
+                        {
+                            //Create new Reserve Object
+                            Console.WriteLine("subSelect: {0} - Reserve", subSelect);
+                        }
+                        else if (subSelect == 3)
+                        {
+                            // Create new Savings object
+                            Console.WriteLine("subSelect: {0} - Savings", subSelect);
+                        }
+                        else
+                        {
+                            // back to main
+                            Console.WriteLine("subSelect: {0} - Back to main", subSelect);
+                        }
+                        Console.WriteLine();
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -73,10 +103,11 @@ namespace BankAccountProject
 
             } while (menuOption != 5);
         }
-        static void SubMenu()
+        static int SubMenu()
         {
-            // Imitialize sub-menu variable
+            // Initialize sub-menu variable
             int subMenuOption;
+            int subSelection = 0;
 
             // Display sub-menu
             do
@@ -98,33 +129,35 @@ namespace BankAccountProject
                     case 1:
                         // Checking account balance
                         Console.WriteLine("\n1 - Checking Account\n");
-                        Console.ReadKey();
+                        subSelection = subMenuOption;
                         Console.Clear();
                         break;
                     case 2:
                         // Reserve account balance
                         Console.WriteLine("\n2 - Reserve Account\n");
-                        Console.ReadKey();
+                        subSelection = subMenuOption;
                         Console.Clear();
                         break;
                     case 3:
                         // Savings account balance
                         Console.WriteLine("\n3 - Savings Account\n");
-                        Console.ReadKey();
+                        subSelection = subMenuOption;
                         Console.Clear();
                         break;
                     case 4:
                         // Return to main menu
                         Console.WriteLine("\n4 - Return to main menu\n");
+                        subSelection = 0;
+                        Console.Clear();
                         break;
                     default:
                         // if another number is selected
                         Console.WriteLine("Please select a number between (1-4)\n");
                         Console.ReadKey();
                         Console.Clear();
-                        break;
+                        break;                   
                 }
-
+                return subSelection;
             } while (subMenuOption != 4);
         }
     }

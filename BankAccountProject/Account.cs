@@ -9,18 +9,32 @@ namespace BankAccountProject
     class Account
     {
         // Fields
-        char accountType;
+        int accountNum;
+        string userName;
+        
 
         // Properties
-        public char AccountType
+        public int AccountNum
         {
-            get { return this.accountType; }
-            set { accountType = value; }
+            get { return this.accountNum; }
+            set { accountNum = value; }
         }
-        // Method
-        public virtual void Display()
+        public string UserName
         {
-            Console.WriteLine("Account Type: {0}, Starting Balance: {1:C}", AccountType);
+            get { return this.userName; }
+            set { userName = value; }
+        }
+        // Contructor
+        public Account(string userName, int accountNum)
+        {
+            UserName = userName;
+            AccountNum = accountNum;
+        }
+
+        // Method
+        public virtual void Display() // Virtual to override in checking
+        {
+            
         }
     }
 }

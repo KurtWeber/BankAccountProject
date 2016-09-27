@@ -15,7 +15,12 @@ namespace BankAccountProject
             int subSelect;
             string userName ="George";
             int accountNum = 987123;
-            
+
+            Checking chkaccount = new Checking(userName, accountNum);
+            Savings savaccount = new Savings(userName, accountNum);
+
+            Console.WriteLine(chkaccount.UserName + " " + chkaccount.AccountNum);
+                        
             // Display Menu
             do
             {
@@ -23,7 +28,7 @@ namespace BankAccountProject
                 Console.WriteLine("Please select from one of the menu selections below.\n");
 
                 Console.WriteLine("1 - Client Information");
-                Console.WriteLine("2 - View account balance");
+                Console.WriteLine("2 - View chkaccount balance");
                 Console.WriteLine("3 - Make a deposit");
                 Console.WriteLine("4 - Make a cash withdrawal");
                 Console.WriteLine("5 - Quit");
@@ -38,21 +43,18 @@ namespace BankAccountProject
                         // View client information Name and account number hardcoded
                         Console.Clear();
                         Console.WriteLine("\nClient Information\n");
-                        Console.WriteLine("UserName: {0}\nAccount Number: {1}", userName, accountNum);
+                        Console.WriteLine("UserName: {0}\nAccount Number: {1}", chkaccount.UserName, chkaccount.AccountNum);
                         Console.Write("\nPress any key continue");
                         Console.ReadKey();
                         Console.Clear();
                         break;
                     case 2:
                         // View account balance - sub menu Chk, Res, and Sav
-                        Console.WriteLine("\n2 - View account information - Selected\n");
+                        Console.WriteLine("\n2 - View chkaccount information - Selected\n");
                         subSelect = SubMenu();
                         if (subSelect == 1)
-                        {
-                            // Create new Checking object
-                            Console.WriteLine("subSelect: {0} - Checking", subSelect);
-                            CheckingAccount checking = new CheckingAccount();
-
+                        {                   
+                            
                             
                         }
                         else if(subSelect == 2)
@@ -114,7 +116,7 @@ namespace BankAccountProject
             {
                 Console.Clear();
                 Console.WriteLine("View Account Balance\n");
-                Console.WriteLine("Please select an account to view\n");
+                Console.WriteLine("Please select an chkaccount to view\n");
                 Console.WriteLine("1 - Checking Account");
                 Console.WriteLine("2 - Reserve Account");
                 Console.WriteLine("3 - Savings Account");
@@ -128,21 +130,28 @@ namespace BankAccountProject
                 {
                     case 1:
                         // Checking account balance
-                        Console.WriteLine("\n1 - Checking Account\n");
+                        //Console.WriteLine("\n1 - Checking Account\n");
+                        account.Display();
+                        
                         subSelection = subMenuOption;
-                        Console.Clear();
+                        //Console.Clear();
+                        Console.ReadKey();
                         break;
                     case 2:
                         // Reserve account balance
-                        Console.WriteLine("\n2 - Reserve Account\n");
+                        //Console.WriteLine("\n2 - Reserve Account\n");
+                        
                         subSelection = subMenuOption;
-                        Console.Clear();
+                        //Console.Clear();
+                        Console.ReadKey();
                         break;
                     case 3:
                         // Savings account balance
                         Console.WriteLine("\n3 - Savings Account\n");
+                        account.Display();
                         subSelection = subMenuOption;
-                        Console.Clear();
+                        //Console.Clear();
+                        Console.ReadKey();
                         break;
                     case 4:
                         // Return to main menu

@@ -9,7 +9,8 @@ namespace BankAccountProject
     class Checking : Account
     {
         // Field 
-        double chkStart;
+        double curStart = 1000.00;
+        double curBal;
         char acctType;
 
 
@@ -25,7 +26,7 @@ namespace BankAccountProject
             get { return this.acctType; }
             set { acctType = value; }
         }
-
+        
         // Constructor
         public Checking(string accountNam, int accountNum) : base(accountNam, accountNum)
         {
@@ -37,6 +38,12 @@ namespace BankAccountProject
         {
             Console.WriteLine("Checking!");
         }
+
+        public void CurrentBalance(double deposit)
+        {
+            Console.WriteLine("Starting Checking account balance: {0:C}", curBal);
+        }
+
 
     }
 }

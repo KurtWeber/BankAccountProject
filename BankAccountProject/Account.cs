@@ -32,9 +32,9 @@ namespace BankAccountProject
         }
 
         // Method
-        public virtual void Display() // Virtual to override in checking
+        public virtual void Display() 
         {
-            
+            // Virtual to override in other accounts
         }
     }
 }

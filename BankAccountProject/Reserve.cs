@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace BankAccountProject
 {
-    class Savings : Account
+    class Reserve : Account
     {
         // Field 
-        double savStart = 1000.00;
+        double resStart = 1000.00;
         char acctType;
-        
+
 
 
         // Properties
-        public double SavStart
+        public double ResStart
         {
-            get { return this.savStart; }
-            set { savStart = value; }
+            get { return this.ResStart; }
+            set { ResStart = value; }
         }
 
         public char AcctType
@@ -28,7 +28,7 @@ namespace BankAccountProject
         }
 
         // Constructor
-        public Savings(string accountNam, int accountNum) : base(accountNam, accountNum)
+        public Reserve(string accountNam, int accountNum) : base(accountNam, accountNum)
         {
 
         }
@@ -36,11 +36,11 @@ namespace BankAccountProject
         // Methods
         public override void Display()
         {
-            Console.WriteLine("Savings!");
+            Console.WriteLine("Reserve!");
         }
         public void CurrentBalance()
         {
-            Console.WriteLine("Starting Savings account balance: {0:C}", savStart);
+            Console.WriteLine("Starting Reserve account balance: {0:C}", resStart);
         }
     }
 }

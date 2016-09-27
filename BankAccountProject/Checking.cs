@@ -17,8 +17,8 @@ namespace BankAccountProject
         // Properties
         public double ChkStart
         {
-            get { return this.chkStart; }
-            set { chkStart = value; }
+            get { return this.curStart; }
+            set { curStart = value; }
         }
         
         public char AcctType
@@ -39,7 +39,7 @@ namespace BankAccountProject
             Console.WriteLine("Checking!");
         }
 
-        public void CurrentBalance(double deposit)
+        public void CurrentBalance()
         {
             Console.WriteLine("Starting Checking account balance: {0:C}", curBal);
         }

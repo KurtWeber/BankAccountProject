@@ -16,6 +16,7 @@ namespace BankAccountProject
             string userName ="George";
             int accountNum = 987123;
 
+            // Instances of the objects
             Checking chkaccount = new Checking(userName, accountNum);
             Savings savaccount = new Savings(userName, accountNum);
             Reserve resaccount = new Reserve(userName, accountNum);
